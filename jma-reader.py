@@ -1,4 +1,4 @@
-import urllib
+from urllib.request import urlopen
 import sys
 from bs4 import BeautifulSoup
 
@@ -10,7 +10,7 @@ def iterate_days(st_id, year, moth_from, month_to):
     for month in range(moth_from, month_to + 1):
         for day in range(1, 32):
             url = form_url(str(st_id), str(year), str(month), str(day))
-            response = urllib.urlopen(url)
+            response = urlopen(url)
 
             html = response.read()
             soup = BeautifulSoup(html)
